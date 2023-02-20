@@ -40,6 +40,7 @@ let board;
 let turn;
 let winner;
 let gameStarted = false;
+let gameRestarted = false;
 let currentArea;
 
 /*----- cached element references -----*/
@@ -80,13 +81,20 @@ function checkIfDraw(){
 function setWinner(){
     resultAreaEl.html(`<h1>${winner}, Wins this Game!</h1>`); 
     disableGridForClicks();
-    playBtnEl.prop('disabled', false);
 }
 
 function playBtnHandler(){
     if(!winner){
         gameStarted = true;
         playBtnEl.prop('disabled', true);
+        $(`#${resultAreaEl[0].id}`)
+        .css(
+        {
+            'visibility':'hidden',
+            'color': ``,
+            'background-color': "" 
+        }
+        );
         render();
     }
     else{
@@ -96,7 +104,6 @@ function playBtnHandler(){
 }
 
 function resetBtnHandler(){
-    init();
     for (let i = 0; i < gamePlayAreaEl.length; i++) {
         gamePlayAreaEl[i].attributes[1].nodeValue = 'areaBtns clearArea';
         $(`#${gamePlayAreaEl[i].id}`)
@@ -109,9 +116,9 @@ function resetBtnHandler(){
     }
     gamePlayAreaEl.html('');
     gameStarted = false;
-    playBtnEl.prop('disabled', false);
     winner=null;
-
+    gameRestarted = true
+    init();
 }
 
 function gamePlayAreaHandler(event){
@@ -180,7 +187,7 @@ function gamePlayAreaHandler(event){
                 }
     
                 if(winner){
-                   setWinner();
+                    setWinner();
                 }
                 else {
                     checkIfDraw();
@@ -195,16 +202,27 @@ function gamePlayAreaHandler(event){
 function init(){
     board=['','','','','','','','',''];
     messageAreaEl.html("<h1>Welcome to Tic Tac Toe by Sarb Bhinder</h1>");
-    $(`#${resultAreaEl[0].id}`)
-    .css(
-        {
-            'visibility':'hidden',
-            'color': ``,
-            'background-color': "" 
+    if(!winner){
+        if(gameRestarted){
+            gameStarted = true;
+            playBtnEl.prop('disabled', true);
+            resultAreaEl.html(``);
+            $(`#${resultAreaEl[0].id}`)
+            .css(
+                {
+                    'visibility':'hidden',
+                    'color': ``,
+                    'background-color': "" 
+                }
+            );
         }
-    );
+        else{
+            resultAreaEl.html(`<h1>Click on Play to start the game!</h1>`); 
+        }
+    }
     gamePlayAreaEl.html('');
     turn = player[1].turn;
+    
 }
 
 function render(){
