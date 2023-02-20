@@ -81,11 +81,10 @@ function setWinner(){
     resultAreaEl.html(`<h1>${winner}, Wins this Game!</h1>`); 
     disableGridForClicks();
     playBtnEl.prop('disabled', false);
-
 }
 
 function playBtnHandler(){
-    if(!winner ){
+    if(!winner){
         gameStarted = true;
         playBtnEl.prop('disabled', true);
         render();
@@ -111,6 +110,7 @@ function resetBtnHandler(){
     gamePlayAreaEl.html('');
     gameStarted = false;
     playBtnEl.prop('disabled', false);
+    winner=null;
 
 }
 
