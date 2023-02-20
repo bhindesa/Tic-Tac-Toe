@@ -3,15 +3,17 @@ body{
     padding: 0;
     /* background-color: aqua; */
 }
-/* #test{
-    width: 200px;
-    height: 200px;
-    /* border-image: linear-gradient(45deg, red, blue) 1;
-    linear-gradient(45deg, red, blue) 1;
+#messageArea{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-image: linear-gradient(45deg, red, blue) 1;
     border-width: 5px;
     border-style: solid; 
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
-} */
+}
 
 
 
@@ -43,13 +45,13 @@ body{
     border-top-left-radius: 70px;
     border-bottom: 5px solid rgb(51, 133, 133);
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: brown;
+    /* background-color: brown; */
 } 
 #area2{
     grid-area: area2;
     border-bottom: 5px solid rgb(51, 133, 133);
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: rgb(218, 17, 17);
+    /* background-color: rgb(218, 17, 17); */
 
 }
 #area3{
@@ -57,28 +59,28 @@ body{
     border-top-right-radius: 70px;
     border-bottom: 5px solid rgb(51, 133, 133);
     /* border-right: 5px solid rgb(51, 133, 133); */
-    background-color: rgb(54, 42, 165);
+    /* background-color: rgb(54, 42, 165); */
 
 }
 #area4{
     grid-area: area4;
     border-bottom: 5px solid rgb(51, 133, 133);
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: rgb(81, 165, 42);
+    /* background-color: rgb(81, 165, 42); */
 
 }
 #area5{
     grid-area: area5;
     border-bottom: 5px solid rgb(51, 133, 133);
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: rgb(214, 204, 67);
+    /* background-color: rgb(214, 204, 67); */
 
 }
 #area6{
     grid-area: area6;
     border-bottom: 5px solid rgb(51, 133, 133);
     /* border-right: 5px solid rgb(51, 133, 133); */
-    background-color: rgb(165, 42, 138);
+    /* background-color: rgb(165, 42, 138); */
 
 }
 #area7{
@@ -86,20 +88,20 @@ body{
     border-bottom-left-radius: 70px;
     /* border-bottom: 5px solid rgb(51, 133, 133); */
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: rgb(154, 214, 126);
+    /* background-color: rgb(154, 214, 126); */
 
 }
 #area8{
     grid-area: area8;
     /* border-bottom: 5px solid rgb(51, 133, 133); */
     border-right: 5px solid rgb(51, 133, 133);
-    background-color: rgba(81, 165, 42, 0.418);
+    /* background-color: rgba(81, 165, 42, 0.418); */
 
 }
 #area9{
     grid-area: area9;
     border-bottom-right-radius: 70px;
-    background-color: rgb(42, 161, 165);
+    /* background-color: rgb(42, 161, 165); */
 }
 #resetButtonArea{
     display: flex;
@@ -116,4 +118,10 @@ body{
     background-color: rgb(56, 202, 141);
     border: 5px outset rgb(17, 151, 51);
 
+}
+.activeArea{
+    pointer-events: none;
+}
+.clearArea{
+    background-color: none;
 }
